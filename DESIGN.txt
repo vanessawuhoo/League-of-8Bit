@@ -1,0 +1,9 @@
+The genre of my game is RPG with turn based combat portions. 
+The name is 
+The goal is to defeat or avoid 5 enemy champions in order to reach the enemy nexus, which is the win condition.
+The character moves around with arrow keys. Selections in combat mode are also made with the arrow keys and spacebar. The
+spacebar will also make dialogue progress.
+The modes differ in that one is RPG style where you control a main character and make them walk around. The other mode
+is a turn based combat mode where you must fight an enemy champion.
+
+
