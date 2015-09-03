@@ -8,4 +8,9 @@ spacebar will also make dialogue progress.
 The modes differ in that one is RPG style where you control a main character and make them walk around. The other mode
 is a turn based combat mode where you must fight an enemy champion.
 
-
+EDIT (9/2/15):
+I managed to fulfill most of these design goals, but the game did end up being shorter 
+than I initially planned, and I only included one enemy champion as 
+opposed to the 5 that I had planned for. However, the core gameplay remains 
+in line with what I had set as my goal. I also did not include dialogue portions, though
+I previously had an idea to. 

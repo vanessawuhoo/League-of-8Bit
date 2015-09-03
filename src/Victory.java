@@ -20,6 +20,4 @@ public class Victory {
 		myBG.setOnMouseClicked(e -> stage.close());
 		return myWin;
 	}
-	
-
 }

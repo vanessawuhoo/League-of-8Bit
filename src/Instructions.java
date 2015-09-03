@@ -11,7 +11,7 @@ import javafx.util.Duration;
 public class Instructions {
 	private Scene myInfo;
 	private Walk walk;
-	private ImageView myBG;
+	private ImageView myBackground;
 	public static final int FRAMES_PER_SECOND = 60;
 	private static final int MILLISECOND_DELAY = 1000 / FRAMES_PER_SECOND;
 	private static final double SECOND_DELAY = 1.0 / FRAMES_PER_SECOND;
@@ -24,8 +24,8 @@ public class Instructions {
 		myInfo = new Scene(root, width, height, Color.GREEN);
 		// Make some shapes and set their properties
 		Image bg = new Image(getClass().getClassLoader().getResourceAsStream("instructions.png"));
-		myBG = new ImageView(bg);
-		root.getChildren().add(myBG);
+		myBackground = new ImageView(bg);
+		root.getChildren().add(myBackground);
 		goToMap(stage, timeline);
 		return myInfo;
 		
@@ -33,6 +33,7 @@ public class Instructions {
 	public void goToMap(Stage stage, Timeline timeline) {
 		walk = new Walk();
 		Scene walkScene = walk.init(stage, timeline, width, height);
+		timeline.stop();
 		myInfo.setOnMouseClicked(e -> stage.setScene(walkScene));
 		Timeline newTimeline = new Timeline();
         KeyFrame frame = new KeyFrame(Duration.millis(MILLISECOND_DELAY),

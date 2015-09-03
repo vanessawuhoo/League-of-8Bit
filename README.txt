@@ -8,33 +8,38 @@ Date finished:
 8/27
 
 Hours worked:
-3
+20-30
 
 Resources used:
-Deviantart, Github
+Deviantart, Github, StackOverflow
 
 Main class file:
-n/a
+Main.java
 
 Data (non Java) files needed:
-n/a
+Everything in /image and the other class files in /src
 
 How to play the game:
-Navigate your character around the map and attempt to avoid each of opposing champions. If you hit the opposing champion, 
-it triggers a turn based combat fight where you must defeat the opponent. After defeating/avoiding all champions, 
-you reach the enemy nexus and win.
+Navigate your character around the map and attempt to avoid the caster minion. If you hit it, 
+it triggers a turn based combat fight where you must defeat the opponent. 
+After defeating/avoiding the minion you reach the enemy nexus and win.
 
 Keys/Mouse input:
-Arrow keys for movement and selection of attacks, spacebar for making selections/scrolling through dialogue.
+Arrow keys for movement, mouse for selecting attacks and clicking through screens.
 
 Cheat Keys:
-n/a
+Spacebar: immediately triggers a battle in the walking portion of the game
+Enter: brings the enemy down to 1hp in the battle portion of the game
 
 Known bugs:
-n/a
+If you choose an attack before the previous attack finishes its animation,
+the previous attack with freeze and not leave the screen.
+It is possible to attack very quickly and kill the enemy before it gets a chance to 
+attack back. 
 
 Extra features:
 n/a
 
 Impressions/Suggestions:
-n/a
+Really fun but also really difficult because we weren't given a lot to start out with.
+Wish there had been some more explanation of how to use JavaFX

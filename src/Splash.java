@@ -8,7 +8,7 @@ import javafx.stage.Stage;
 
 public class Splash {
 	private Scene mySplash;
-	private ImageView myBG;
+	private ImageView myBackground;
 	private Instructions instructions;
 	public static final String TITLE = "League of 8Bit";
     public static final int FRAMES_PER_SECOND = 60;
@@ -22,8 +22,8 @@ public class Splash {
 		Group root = new Group();
 		mySplash = new Scene(root, width, height, Color.GREEN);
 		Image bg = new Image(getClass().getClassLoader().getResourceAsStream("splash.png"));
-		myBG = new ImageView(bg);
-		root.getChildren().add(myBG);
+		myBackground = new ImageView(bg);
+		root.getChildren().add(myBackground);
 		goToInfo(stage,timeline);
 		return mySplash;
 	}
