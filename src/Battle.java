@@ -11,6 +11,11 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+//@author Vanessa Wu
+//used to initialize a fight with an enemy champion in the game
+//depends on both Defeat and Victory classes
+//used by calling an instance and initializing it with .init()
+
 public class Battle {
 	private Group root;
 	private Scene myBattle;
@@ -22,7 +27,9 @@ public class Battle {
 	public static final int FRAMES_PER_SECOND = 60;
 	private boolean myTurn = true, enemyTurn = false;
 	private int height = 256, width = 640, delay = 0;
-
+	
+	//initializes and returns the Scene for the Battle screen, will fail if 
+	//bg image cannot be found
 	public Scene init(Stage stage, Timeline timeline, int width, int height) {
 		root = new Group();
 		myBattle = new Scene(root, width, height, Color.GREEN);
@@ -60,12 +67,15 @@ public class Battle {
 		return myBattle;
 	}
 
+	//helper method to quickly initialize new ImageViews and return them
 	public ImageView importPics(String title) {
 		Image image = new Image(getClass().getClassLoader().getResourceAsStream(title));
 		ImageView myIV = new ImageView(image);
 		return myIV;
 	}
 
+	//helper method to initialize ProgressBars, format them, add them to the
+	//screen, and return them
 	public ProgressBar healthInitialize(double health) {
 		ProgressBar progress = new ProgressBar();
 		progress.setProgress(health / 10);
@@ -74,6 +84,7 @@ public class Battle {
 		return progress;
 	}
 
+	//helper method to style buttons quickly and add them to the screen
 	public void styleButton(Button button) {
 		button.setLayoutY(height / 4);
 		button.setStyle("-fx-background-color:#000000," + "linear-gradient(#7ebcea, #2f4b8f),"
@@ -83,6 +94,8 @@ public class Battle {
 		root.getChildren().add(button);
 	}
 
+	//helper method that determines what discrete attacks do in terms of damage
+	//and triggers attack animations
 	public void myAttacks(String type) {
 		if (type.equals("ORB")) {
 			eH -= 2;
@@ -109,6 +122,7 @@ public class Battle {
 		switcher();
 	}
 
+	//helper method that initializes attack animations and adds them to the scene
 	public void attackAnimation(String img) {
 		myAttack = importPics(img);
 		myAttack.setX(ahri.getX());
@@ -116,6 +130,7 @@ public class Battle {
 		root.getChildren().add(myAttack);
 	}
 
+	//helper method that initializes enemy attack animations and adds them to the scene
 	public void enemyAttack(String img) {
 		eAttack = importPics(img);
 		eAttack.setX(enemyChampion.getX());
@@ -123,6 +138,9 @@ public class Battle {
 		root.getChildren().add(eAttack);
 	}
 
+	//helper method that determines whether to continue the battle or not
+	//will redirect to game over or victory screens depending on whether the
+	//player wins or loses. 
 	public void cont(Stage stage, Timeline timeline) {
 		myBattle.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 		if (aH > 0 && eH > 0) {
@@ -148,6 +166,8 @@ public class Battle {
 		}
 	}
 
+	//helper method that determines what happens when the enemy attacks based on
+	//randomly generated integers
 	public void enemyAttack() {
 		Random random = new Random();
 		int randomInt = random.nextInt((10) + 1);
@@ -166,6 +186,7 @@ public class Battle {
 		}
 	}
 
+	//method that sets up the animation for the scene
 	public void step(Stage stage, Timeline timeline, double elapsedTime) {
 		if (ahri.getY() >= 140) {
 			BOUNCER_SPEED *= -1;
@@ -181,14 +202,16 @@ public class Battle {
 			delay++;
 		}
 	}
-
+	
+	//helper method that routes what happens when the attack buttons are pressed
 	public void buttonPress() {
 		orb.setOnMouseClicked(e -> myAttacks("ORB"));
 		charm.setOnMouseClicked(e -> myAttacks("CHARM"));
 		fire.setOnMouseClicked(e -> myAttacks("FIRE"));
 		spirit.setOnMouseClicked(e -> myAttacks("SPIRIT"));
 	}
-
+	
+	//method that handles user key input
 	private void handleKeyInput(KeyCode code) {
 		switch (code) {
 		case ENTER:
@@ -199,6 +222,7 @@ public class Battle {
 		}
 	}
 
+	//method that changes whose turn it is
 	public void switcher() {
 		myTurn = !myTurn;
 	}

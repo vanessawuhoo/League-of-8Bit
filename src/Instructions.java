@@ -8,6 +8,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+//@author Vanessa Wu
+//Used to instruct players on how to operate the game
+//Depends on Walk class
+//used by calling an instance and initializing it with .init()
+
 public class Instructions {
 	private Scene myInfo;
 	private Walk walk;
@@ -17,6 +22,8 @@ public class Instructions {
 	private static final double SECOND_DELAY = 1.0 / FRAMES_PER_SECOND;
     private int height = 256, width = 640;
     
+    //used to set up the instruction screen, will fail if graphic cannot be found
+    //returns a Scene
 	public Scene init(Stage stage, Timeline timeline, int width, int height) {
 		// Create a scene graph to organize the scene
 		Group root = new Group();
@@ -27,9 +34,11 @@ public class Instructions {
 		myBackground = new ImageView(bg);
 		root.getChildren().add(myBackground);
 		goToMap(stage, timeline);
-		return myInfo;
-		
+		return myInfo;	
 	}
+	
+	//initializes the Walk scene and directs user to it upon clicking. also 
+	//initializes the screen animation
 	public void goToMap(Stage stage, Timeline timeline) {
 		walk = new Walk();
 		Scene walkScene = walk.init(stage, timeline, width, height);

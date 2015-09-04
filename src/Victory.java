@@ -6,11 +6,19 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+//@author Vanessa Wu
+//Used to indicate player has won game
+//Does not depend on any class
+//used by calling an instance and initializing it with .init()
+
 public class Victory {
 	private Scene myWin;
 	private ImageView myBG;
     public static final int FRAMES_PER_SECOND = 60;
     
+    
+    //used to set up the winning screen, will fail if graphic cannot be found
+    //returns a Scene
 	public Scene init(Stage stage, Timeline timeline, int width, int height) {
 		Group root = new Group();
 		myWin = new Scene(root, width, height, Color.GREEN);

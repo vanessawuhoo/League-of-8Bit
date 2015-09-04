@@ -14,3 +14,10 @@ than I initially planned, and I only included one enemy champion as
 opposed to the 5 that I had planned for. However, the core gameplay remains 
 in line with what I had set as my goal. I also did not include dialogue portions, though
 I previously had an idea to. 
+
+I ended up scrapping the idea of having multiple enemy champions because 
+I ran into an issue with loading too many scenes, where for some reason the animation
+would freak out when I added more walk and battle scenes. I couldn't fix the issue in the 
+end and I felt that it didn't add significantly to the core gameplay, since it was just
+recalling old classes, so I kept the game as short as it is. The con is that the game is 
+shorter, but the pro is that what I have works and is relatively robust.

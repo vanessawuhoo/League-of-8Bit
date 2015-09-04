@@ -9,6 +9,11 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+// @author Vanessa Wu
+//Controls the walking around portion of the game 
+//Depends on Battle and Victory class
+//used by calling an instance and initializing it with .init()
+
 public class Walk {
 	public static final int KEY_INPUT_SPEED = 7;
 	private static int BOUNCER_SPEED = 170;
@@ -19,7 +24,9 @@ public class Walk {
 	private Scene myScene;
 	private ImageView myCharacter;
 	private ImageView myEnemy;
-
+	
+    //used to set up the walking around screen, will fail if graphic cannot be found
+    //returns a Scene
 	public Scene init(Stage stage, Timeline timeline, int width, int height) {
 		Group root = new Group();
 		myScene = new Scene(root, width, height, Color.GREEN);
@@ -36,13 +43,15 @@ public class Walk {
 		myScene.setOnKeyPressed(e -> handleKeyInput(e.getCode()));
 		return myScene;
 	}
-
+	
+	//helper method to quickly initialize new ImageViews and return them
 	public ImageView importPics(String title) {
 		Image image = new Image(getClass().getClassLoader().getResourceAsStream(title));
 		ImageView myIV = new ImageView(image);
 		return myIV;
 	}
 
+	//method that sets up the animation for the scene
 	public void step(Stage stage, Timeline timeline, double elapsedTime) {
 		if (myEnemy.getY() >= 215) {
 			BOUNCER_SPEED *= -1;
@@ -58,6 +67,7 @@ public class Walk {
 		}
 	}
 
+	//method that initializes and redirects to a Battle scene
 	private void goToBattle(Stage stage, Timeline timeline) {
 		timeline.stop();
 		Timeline newTimeline = new Timeline();
@@ -70,12 +80,14 @@ public class Walk {
 		newTimeline.play();
 	}
 
+	//method that initializes and redirects to the Victory scene
 	private void goToVictory(Stage stage, Timeline timeline) {
 		Victory victory = new Victory();
 		Scene myWin = victory.init(stage, timeline, width, height);
 		stage.setScene(myWin);
 	}
 
+	//method that interprets and handles user key input
 	private void handleKeyInput(KeyCode code) {
 		switch (code) {
 		case SPACE:
