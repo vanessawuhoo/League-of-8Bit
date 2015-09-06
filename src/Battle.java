@@ -1,5 +1,7 @@
-import java.util.Random;
+// This entire file is part of my masterpiece.
+// Vanessa Wu
 
+import java.util.Random;
 import javafx.animation.Timeline;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -228,3 +230,5 @@ public class Battle {
 	}
 
 }
+
+
