@@ -42,7 +42,3 @@ attack back.
 
 Extra features:
 n/a
-
-Impressions/Suggestions:
-Really fun but also really difficult because we weren't given a lot to start out with.
-Wish there had been some more explanation of how to use JavaFX
