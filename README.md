@@ -22,6 +22,9 @@ Main.java
 Data (non Java) files needed:
 Everything in /image and the other class files in /src
 
+How to run: 
+Clone the repository to desktop and run /src/Main.java
+
 How to play the game:
 Navigate your character around the map and attempt to avoid the caster minion. If you hit it, 
 it triggers a turn based combat fight where you must defeat the opponent. 
